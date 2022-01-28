@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head th:fragment="head_pagina">
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagina Principal</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<link href="/style.css" rel="stylesheet" />
+</head>
+<style>
+	#cabecalho {
+		background-color: chartreuse;
+		padding-right: 20px
+	}
+	
+	
+	
+</style>
+<body>
+	<header th:fragment="headers"  id="header_top">
+		<h1>High Controller Management</h1>
+	</header>
+
+
+	
+	<div class="table-responsive" th:fragment="menu" id="cabecalho">
+		<div id="sideNavigation" class="navbar ">
+			<header>Menu</header>
+			<a href="/" class="active">
+				<i class="fas fa-chart-line"></i>
+				<span>Compre aqui seus ingressos</span>
+			</a>
+			<a href="" th:href="@{/cadastro/consultas/listar}">
+				<i class="far fa-edit"></i>
+				<span>Area Administrativa</span>
+			</a>
+			
+		</div>
+
+	</div>
+		
+
+			
+
+		<div th:fragment="footer">
+			<footer class="page-footer font-small blue">
+				<h8>teste</h8>
+			</footer>
+
+		</div>
+</body>
+
+</html>

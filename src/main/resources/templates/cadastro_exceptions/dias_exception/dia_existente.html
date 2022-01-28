@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head_pagina">
+
+</head>
+<style>
+#header{
+	float: left;
+}
+
+#div2 {
+	margin-top: 40px;
+	float: center;
+	padding-left: 130px;
+}
+
+#menuCadastro {
+	float: left;
+	margin-top: -4px;
+	margin-left: -26px;
+}
+</style>
+<body>
+	<div class="container" id="header">
+		<div th:replace="fragments :: headers"></div>
+	</div>
+
+	<div class="container" id="menuCadastro">
+		<div th:replace="fragments :: menu"></div>
+	</div>
+
+	<div align="center" class="container" id="div2">
+		<h1>Dia j&aacute; est&aacute; Reservado!!!!</h1>
+		<span th:text="${mensagemDias}"></span><br /> <a type="button"
+			class="btn btn-primary" th:href="@{/cadastro/consultas/listar}">Clique
+			para retornar a lista de Consultas</a>
+	</div>
+
+
+
+	<div class="fixed-bottom">
+		<div th:replace="fragments :: footer"></div>
+	</div>
+</body>
+</html>

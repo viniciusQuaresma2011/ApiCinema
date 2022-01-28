@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: head_pagina">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	
+</head>
+<style>
+.container {
+	float: left;
+}
+
+#menuCadastroPaciente {
+	float: left;
+	margin-top: -4px;
+	margin-left: -26px;
+}
+
+#conteudo {
+	float: center;
+	width: 80%;
+	margin-left: 240px;
+	margin-top: 230px;
+}
+
+#footer_style {
+	background-color: red;
+}
+
+#myCarousel{
+	float: center;
+	
+}
+</style>
+<body>
+	<div class="container">
+		<div th:replace="fragments :: headers"></div>
+	</div>
+
+	<div class="container" id="menuCadastroPaciente">
+		<div th:replace="fragments :: menu"></div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div id="footer_style" th:replace="fragments :: footer"></div>
+
+
+
+
+</body>
+
+</html>

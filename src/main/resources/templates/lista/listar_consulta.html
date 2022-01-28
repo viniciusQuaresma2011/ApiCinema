@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head th:replace="fragments :: head_pagina"></head>
+
+<style>
+	
+	.cor-text{
+		color: white;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: large;
+		font-weight: 100;
+		
+	}
+	#menuCadastroPaciente{
+		float: left;
+		margin-top: 14px;	
+		margin-left: -26px;
+	}
+	#header_paciente{
+		margin-left: 0;
+		padding-right: 50px;
+	}
+	#campo_Pesquisa{
+		margin-top: 100px;
+		padding: 0px;
+	}
+	#form_pesquisa{
+		float: center;
+	}
+	
+/* 	#span_consultaMarcada{ */
+		
+/* 	} */
+	
+</style>
+
+<body>
+
+	<div class="container" id="header_paciente" >
+		<div  th:replace="fragments :: headers"></div>
+	</div>
+
+	<div class="container" id="menuCadastroPaciente">
+		<div th:replace="fragments :: menu"></div>
+	</div>
+
+
+	<div class="container   jumbotron" id="campo_Pesquisa">
+		<nav class="navbar navbar-expand-md ">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto" id="span_consultaMarcada" >
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Consultas Marcadas</span></li>
+				</ul>
+			</div>
+			<form class="form-inline  p-3" method="POST" action="buscarPorNome"  id="form_pesquisa">
+				<input class="form-control mr-sm-2" type="search" placeholder="nome" name="nome">
+				<button class="btn btn-outline-success my-2 my-sm-0">Pesquisar</button>
+			</form>
+		</nav>
+	</div>
+
+	<div align=" right" class="container w-100">
+		<a class="  btn btn-secondary" href="/consultas/exportarCsv" role="button"> <span class="oi oi-plus"
+				title="relatorio" aria-hidden="true"></span> <span class="cor-text">Gerar Relatorio</span>
+		</a>
+		<a class="btn btn-success" href="/cadastro/consultas" role="button"> <span class="oi oi-plus"
+				title="Cadastro" aria-hidden="true"></span> <span>Marcar Consulta</span>
+		</a>
+	</div>
+
+
+	<div class="container w-100 fixed p-3 ">
+		<!-- table-responsive aqui deixa a tabela responsiva-> -->
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered  ">
+				<thead style="text-align: center;">
+					<tr>
+						<th>Nome Do Paciente</th>
+						<th>Nome Do Médico</th>
+						<th>Data Da Consulta</th>
+						<th>Dia Da Consulta</th>
+						<th>Data de Retorno</th>
+						<th>Acoes</th>
+					</tr>
+				</thead>
+				<tbody style="text-align: center;">
+					<tr th:each="consulta : ${listaConsulta}">
+						<td th:text="${consulta.nome_paciente}"></td>
+						<td th:text="${consulta.nome_medico}"></td>
+						<td  th:text="${consulta.data_agendamento}"></td>
+						<td th:text="${consulta.dia_da_semana}"></td>
+						<td th:text="${consulta.data_retorno}"></td>
+						
+
+						<td title="Editar" colspan="2" align="center"><a class="btn btn-info fas fa-edit "
+								th:href="@{/cadastro/consultas/editar/{id}(id=${consulta.id})}" role="button"><span
+									class="oi oi-brush" aria-hidden="true" ></span></a>
+
+
+
+							<a  title="Remover" class=" btn btn-danger fas fa-trash-alt" data-toggle="modal" data-target="#modal-warning"
+								th:href="@{/cadastro/consultas/remover/{id}(id=${consulta.id})}"
+								th:attr="data-target='#modal-warning'+${consulta.id}"><span class="oi oi-circle-x"
+									aria-hidden="true"></span></a>
+
+
+
+
+						</td>
+
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="fixed-bottom">
+		<div th:replace="fragments :: footer"></div>
+	</div>
+
+
+</body>
+
+</html>

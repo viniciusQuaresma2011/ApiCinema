@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head_pagina">
+
+</head>
+<style>
+
+	#menuCadastroPaciente{
+		float: left;
+		margin-top: -4px;
+		margin-left: -26px;
+	}
+
+	#div2{
+		display: inline-block;
+		float: center;
+		
+		margin-left: 100px;
+	}
+	#header{
+		float: left;
+	}
+</style>
+<body>
+	<div class="container"  id="header">
+		<div th:replace="fragments :: headers"></div>
+	</div>
+
+	<div class="container" id="menuCadastroPaciente">
+		<div th:replace="fragments :: menu"></div>
+	</div>
+
+
+	<div align="center" class="container" id="div2" style="float: center;">
+		<h1>Paciente Editado Com Sucesso!!</h1>
+		<span>Nome:  </span><span th:text="${pacientes.nome}"></span><br />
+		<span>Email: </span><span th:text="${pacientes.email}"></span><br />
+		<span>CPF:  </span><span th:text="${pacientes.cpf}"></span><br/>
+		<span>Telefone:  </span><span th:text="${pacientes.telefone}"></span><br />
+		<span>Endereco:  </span><span th:text="${pacientes.endereco.rua}"></span><br />
+		
+		
+		<a  type="button" class="btn btn-primary" href="/cadastro/pacientes/listar">Voltar Para a Lista de Pacientes</a>
+	</div>
+	
+
+
+
+	
+	<div class="fixed-bottom">
+		<div th:replace="fragments :: footer"></div>
+	</div>
+
+
+
+</body>
+</html>

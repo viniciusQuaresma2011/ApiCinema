@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head_pagina">
+
+</head>
+<style>
+#cabecalho{
+		float:left;
+	}
+
+	#menuCadastro{
+		float: left;
+		margin-top: -4px;
+		margin-left: -26px;
+	}
+
+	#div2{
+		display: inline-block;
+		float: center ;
+		
+		margin-left: 130px;
+	}
+</style>
+<body>
+	<div class="container" id="cabecalho">
+		<div th:replace="fragments :: headers"></div>
+	</div>
+
+	<div class="container" id="menuCadastro">
+		<div th:replace="fragments :: menu"></div>
+	</div>
+
+
+	<div align="center" class="container" id="div2">
+		<h1>Consulta  Marcada Com Sucesso!!</h1>
+		<span>Nome Do Paciente:  </span><span th:text="${consultas.nome_paciente}"></span><br />
+		<span>Nome Do Médico: </span><span th:text="${consultas.nome_medico}"></span><br />
+		<span>Data Do Agendamento:  </span><span th:text="${consultas.data_agendamento}"></span><br/>
+		<span>Dia Da Semana(*Consulta):  </span><span th:text="${consultas.dia_da_semana}"></span><br />
+		<span>Data Do Retorno:  </span><span th:text="${consultas.data_retorno}"></span><br />
+		
+		
+		<a  type="button" class="btn btn-primary" href="/cadastro/consultas/listar">Voltar Para a Lista de Consultas</a>
+	</div>
+	
+
+
+
+	
+	<div class="fixed-bottom">
+		<div th:replace="fragments :: footer"></div>
+	</div>
+
+
+
+</body>
+</html>

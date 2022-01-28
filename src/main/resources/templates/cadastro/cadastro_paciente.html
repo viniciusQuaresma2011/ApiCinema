@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head_pagina">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+	#menuCadastroPaciente{
+		float: left;
+		margin-top: 14px;	
+		margin-left: -26px;
+		
+	}
+	#formulario{
+		width: 40%;
+	}
+	
+	
+</style>
+<body>
+	<div class="container" id="header_paciente">
+		<div th:replace="fragments :: headers"></div>
+	</div>
+
+	<div class="container" id="menuCadastroPaciente">
+		<div  th:replace="fragments :: menu"></div>
+	</div>
+
+
+
+
+
+
+	<div class="container jumbotron" align="center" style="margin-top: 30px;" >
+		
+			<h1>Cadastrar Paciente</h1>
+	
+	
+			<form id="formulario" class="form-inline " th:object="${pacientes}" method="post"
+				th:action="@{/cadastro/pacientes/salvar}">
+					<div class="col-md-6">
+						<label for="validationDefault01">Nome</label> <input type="text"
+							th:field="*{nome}" class="form-control" id="validationDefault01"
+							placeholder="nome" required>
+					</div>
+					<div class="col-md-6">
+						<label for="validationDefault02">Email</label> <input type="email"
+							th:field="*{email}" class="form-control" id="validationDefault02"
+							placeholder="email" required>
+					</div>
+					<div class="col-md-6">
+							<label for="validationDefault01">CPF</label> <input type="text"
+							th:field="*{cpf}" class="form-control" id="validationDefault01"
+							placeholder="cpf" required>
+					</div>
+					<div class="col-md-6">
+						 <label
+						for="validationDefault01">Telefone</label> <input type="tel"
+						th:field="*{telefone}" class="form-control"
+						id="validationDefault01" placeholder="telefone" required>
+					</div>
+			
+						<div class="col-md-6">
+							 <label
+								for="validationDefault01">Rua</label> <input type="text"
+								th:field="*{endereco.rua}" class="form-control" id="validationDefault01"
+								placeholder="rua" required> 
+						</div>
+						<div class="col-md-6">	
+							<label
+							for="validationDefault01">CEP:</label> <input type="text"
+							th:field="*{endereco.cep}" class="form-control" id="validationDefault01"
+							placeholder="cep" required> 
+						</div>
+						<div class="col-md-6">					
+							<label
+								for="validationDefault01">Bairro:</label> <input type="text"
+								th:field="*{endereco.bairro}" class="form-control" id="validationDefault01"
+								placeholder="bairro" required> 
+						</div>
+						<div class="col-md-6">
+							<label
+							for="validationDefault01">Estado:</label> <input type="text"
+							th:field="*{endereco.estado}" class="form-control" id="validationDefault01"
+							placeholder="estado" required>
+						</div>
+						<div class="col-md-6">
+							 <label
+							for="validationDefault01">Logradouro:</label> <input type="text"
+							th:field="*{endereco.logradouro}" class="form-control"
+							id="validationDefault01" placeholder="logradouro" required>
+						</div>
+						<div class="col-md-6">
+							<label for="validationDefault01">Ponto de referencia:</label> <input
+								type="text" th:field="*{endereco.pontoDeReferencia}" class="form-control"
+								id="validationDefault01" placeholder="pontoDeReferencia" required>
+						</div>
+			
+					<div class="col-md-12">
+						<input type="hidden" id="id" th:field="*{id}" value="" />
+						<button class="btn btn-primary" type="submit">Salvar</button>
+						<a  class="btn btn-primary"
+							th:href="@{/cadastro/pacientes/listar}">Voltar</a >
+				</div>
+				
+			</form>
+			</div>
+		
+		
+
+
+
+
+
+	<div class="fixed-bottom">
+		<div th:replace="fragments :: footer"></div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head_pagina">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+	#menu_nav{
+		float: left;
+		margin-top: 14px;
+		margin-left: -26px;
+	}
+	#header_paciente{
+		margin-left: 0;
+		padding-right: 50px;
+	}
+</style>
+<body>
+	<div class="container" id="header_paciente" >
+		<div  th:replace="fragments :: headers"></div>
+	</div>
+
+	<div class="container" id="menu_nav">
+		<div th:replace="fragments :: menu"></div>
+	</div>
+
+
+
+	
+	
+
+	<div class="container  jumbotron" align="left" style="margin-top: 30px;">
+		<h1>Marcar Consulta</h1>
+
+
+		<form  class="row " th:object="${consultas}" method="post"
+			th:action="@{/cadastro/consultas/salvar}">
+				<div class="col-md-4">
+				<div class="row">
+<!-- 					<label for="validationDefault01">Nome do Paciente:</label> <input type="text" -->
+<!-- 						th:field="*{nome_paciente}" class="form-control" id="validationDefault01" -->
+<!-- 						placeholder="nome" required> -->
+						
+						<label for="exampleFormControlSelect1">Nome do Paciente:</label> <select
+							class="form-control" th:field="*{nome_paciente}"
+							id="exampleFormControlSelect1" required>
+							<option th:each="p : ${NomeDosPacientes}" th:value="${p.id}" th:text="${p.nome}" required></option>
+						</select>
+			
+				
+			
+					<label for="exampleFormControlSelect1">Nome do Medico:</label> <select
+							class="form-control" th:field="*{nome_medico}"
+							id="exampleFormControlSelect1" required>
+							<option th:each="p : ${NomeDosMedicos}" th:value="${p.id}" th:text="${p.nome}" required></option>
+						</select>
+				
+				
+<!-- 				<div class="col-md-4"> -->
+<!-- 						<label for="exampleFormControlSelect1">Dia da Semana(*Consulta):</label> <select -->
+<!-- 							class="form-control" th:field="*{dia_da_semana}" -->
+<!-- 							id="exampleFormControlSelect1" required> -->
+<!-- 							<option th:each="p : ${listaDiaDaSemana}" th:value="${p}" th:text="${p}" ></option> -->
+<!-- 						</select> -->
+<!-- 				</div> -->
+				
+						<label for="validationDefault01">Hora da Consulta</label> <input type="time" 
+						th:field="*{horaDaConsulta}" class="form-control" id="validationDefault01"
+						placeholder="agendamento" required>
+			
+			
+						<label for="validationDefault01">Data da Consulta</label> <input type="date"
+						th:field="*{dataDaConsulta}" class="form-control" id="validationDefault01"
+						placeholder="retorno" required>
+			
+	
+			
+				<div class="col-md-12">
+					<input type="hidden" id="id" th:field="*{id}" value="" />
+					<button  class="btn btn-success" type="submit">Salvar</button>
+					<a type="button" class="btn btn-danger" th:href="@{/cadastro/consultas/listar}">Voltar</a>
+				</div>
+				</div>
+				</div>
+				
+			</form>
+		</div>
+	
+	
+
+
+	<div class="fixed-bottom">
+		<div th:replace="fragments :: footer"></div>
+	</div>
+
+</body>
+</html>

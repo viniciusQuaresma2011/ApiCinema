@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head_pagina">
+
+</head>
+<style>
+	#menuCadastroPaciente{
+		float: left;
+		margin-top: 14px;	
+		margin-left: -26px;
+		
+	}
+	#formulario{
+		width: 40%;
+	}
+	
+	
+</style>
+<body>
+	<div class="container" id="header_paciente">
+		<div th:replace="fragments :: headers"></div>
+	</div>
+
+	<div class="container" id="menuCadastroPaciente">
+		<div  th:replace="fragments :: menu"></div>
+	</div>
+
+
+
+
+
+
+	<div class="container jumbotron" align="center" style="margin-top: 30px;" >
+		
+			<h1>Cadastrar Filme</h1>
+	
+	
+			<form id="formulario" class="form-inline " th:object="${filmes}" method="post"
+				th:action="@{/cadastro/filme/salvar}">
+					<div class="col-md-6">
+					<div class="row">
+						<label for="validationDefault01">Nome do Filme: </label> <input type="text"
+							th:field="*{nome}" class="form-control" id="validationDefault01"
+							placeholder="nome" required>
+					
+						<label for="validationDefault01">Data estreia: </label> <input type="date"
+							th:field="*{dataDisponivel}" class="form-control" id="validationDefault01"
+							placeholder="Data" required>
+					
+					
+						<label for="validationDefault02">Horario disponivel: </label> <input  type="time"
+							th:field="*{horarioDisponivel}" class="form-control col-md-11" id="validationDefault02"
+							placeholder="horario" required>
+					
+				
+			
+					<div>
+						<input type="hidden" id="id" th:field="*{id}" value="" />
+						<button class="btn btn-primary" type="submit">Salvar</button>
+						<a  class="btn btn-primary"
+							th:href="@{/cadastro/agendas/listar}">Voltar</a >
+						</div>
+				</div>
+				</div>
+				
+			</form>
+			</div>
+		
+		
+
+
+
+
+
+	<div class="fixed-bottom">
+		<div th:replace="fragments :: footer"></div>
+	</div>
+
+</body>
+</html>
